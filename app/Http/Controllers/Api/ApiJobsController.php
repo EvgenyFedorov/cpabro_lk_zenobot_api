@@ -12,7 +12,7 @@ class ApiJobsController extends ApiController
 
 //        $response = $this->response()->Json();
 
-        $jobs = $this->jobs()->getAll([['enable', 1]]);
+        $jobs = $this->jobs()->getAll([['enable', 1], ['status', 0]]);
         $job_ids = [];
 
         DB::beginTransaction();
@@ -32,7 +32,7 @@ class ApiJobsController extends ApiController
     }
     public function getOnUserId($id){
 
-        $jobs = $this->jobs()->getAll([['enable', 1], ['user_id', $id]]);
+        $jobs = $this->jobs()->getAll([['enable', 1], ['status', 0], ['user_id', $id]]);
         $job_ids = [];
 
         DB::beginTransaction();
@@ -52,7 +52,7 @@ class ApiJobsController extends ApiController
     }
     public function getOnProgramId($id){
 
-        $jobs = $this->jobs()->getAll([['enable', 1], ['program_id', $id]]);
+        $jobs = $this->jobs()->getAll([['enable', 1], ['status', 0], ['program_id', $id]]);
         $job_ids = [];
 
         DB::beginTransaction();
@@ -72,7 +72,7 @@ class ApiJobsController extends ApiController
     }
     public function getOnUserAndProgramId($id, $program_id){
 
-        $jobs = $this->jobs()->getAll([['enable', 1], ['user_id', $id], ['program_id', $program_id]]);
+        $jobs = $this->jobs()->getAll([['enable', 1], ['status', 0], ['user_id', $id], ['program_id', $program_id]]);
         $job_ids = [];
 
         DB::beginTransaction();
