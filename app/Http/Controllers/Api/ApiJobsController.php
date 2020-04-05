@@ -22,7 +22,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($job->id);
             $job_edit->status = 1;
-            $job_edit->save();
+            //$job_edit->save();
         }
 
         DB::commit();
@@ -42,7 +42,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($job->id);
             $job_edit->status = 1;
-            $job_edit->save();
+            //$job_edit->save();
         }
 
         DB::commit();
@@ -62,7 +62,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($job->id);
             $job_edit->status = 1;
-            $job_edit->save();
+            //$job_edit->save();
         }
 
         DB::commit();
@@ -82,7 +82,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($job->id);
             $job_edit->status = 1;
-            $job_edit->save();
+            //$job_edit->save();
         }
 
         DB::commit();
