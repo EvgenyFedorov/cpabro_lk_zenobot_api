@@ -18,7 +18,7 @@ class ApiJobsController extends ApiController
         DB::beginTransaction();
 
         foreach ($jobs as $job){
-            $job_ids[] = $job->code_id;
+            //$job_ids[] = $job->code_id;
 
             $job_edit = Jobs::find($job->id);
             $job_edit->status = 1;
@@ -27,7 +27,7 @@ class ApiJobsController extends ApiController
 
         DB::commit();
 
-        return json_encode($job_ids);
+        return json_encode($jobs);
 
     }
     public function getOnUserId($id){
@@ -47,7 +47,7 @@ class ApiJobsController extends ApiController
 
         DB::commit();
 
-        return json_encode($job_ids);
+        return json_encode($jobs);
 
     }
     public function getOnProgramId($id){
@@ -67,7 +67,7 @@ class ApiJobsController extends ApiController
 
         DB::commit();
 
-        return json_encode($job_ids);
+        return json_encode($jobs);
 
     }
     public function getOnUserAndProgramId($id, $program_id){
@@ -87,7 +87,7 @@ class ApiJobsController extends ApiController
 
         DB::commit();
 
-        return json_encode($job_ids);
+        return json_encode($jobs);
 
     }
 }
