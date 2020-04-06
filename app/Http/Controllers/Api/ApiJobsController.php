@@ -114,12 +114,11 @@ class ApiJobsController extends ApiController
     }
     public function hookFail(Request $request, $id){
 
-        $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
+        $job_edit = Jobs::find($id);
         $input = $request->input();
 
-        if($jobs){
+        if($job_edit){
 
-            $job_edit = Jobs::find($jobs[0]->id);
             $job_edit->status = 2;
             $job_edit->save();
 
