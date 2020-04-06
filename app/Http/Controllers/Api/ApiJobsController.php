@@ -123,7 +123,7 @@ class ApiJobsController extends ApiController
             $job_edit->save();
 
             $log = new Logs();
-            $log->job_id = $jobs[0]->id;
+            $log->job_id = $id;
             $log->description = $input['description'];
             $log->created_at = date("U") + (3600 * 3);
             $log->save();
@@ -131,7 +131,7 @@ class ApiJobsController extends ApiController
         }
 
         $response = [
-            'id' => $jobs[0]->id,
+            'id' => $id,
             'status' => 'fail'
         ];
 
