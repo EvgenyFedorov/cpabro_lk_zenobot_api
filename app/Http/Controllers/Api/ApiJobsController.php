@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Api\Logs;
 use App\Models\Bot\Jobs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -110,4 +111,31 @@ class ApiJobsController extends ApiController
         return json_encode($response);
 
     }
+    public function hookFail(Request $request, $id){
+
+        $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
+        $input = $request->input();
+
+        if($jobs){
+
+            $job_edit = Jobs::find($jobs[0]->id);
+            $job_edit->status = 2;
+
+            $log = new Logs();
+            $log->job_id = $jobs[0]->id;
+            $log->description = $input['description'];
+            $log->created_at = date("U") + (3600 * 3);
+            $log->save();
+
+        }
+
+        $response = [
+            'id' => $jobs[0]->id,
+            'status' => 'fail'
+        ];
+
+        return json_encode($response);
+
+    }
+
 }
