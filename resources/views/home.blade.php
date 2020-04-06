@@ -27,7 +27,7 @@
                                 <th class="id">{{$job->id}}</th>
                                 <th class="program_id">{{$job->program_id}}</th>
                                 <th class="user_id">{{$job->user_id}}</th>
-                                <th class="code_id">{{$job->code_id . rand(11111,23344)}}</th>
+                                <th class="code_id">{{$job->code_id}}</th>
                             </tr>
                         @endforeach
                     </table>
