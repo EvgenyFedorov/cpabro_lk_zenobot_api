@@ -94,7 +94,20 @@ class ApiJobsController extends ApiController
     public function hookSuccess(Request $request, $id){
 
         $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
-        return json_encode($jobs);
+
+        if($jobs){
+
+            $job_edit = Jobs::find($jobs[0]->id);
+            $job_edit->status = 1;
+
+        }
+
+        $response = [
+            'id' => $jobs[0]->id,
+            'status' => 'success'
+        ];
+
+        return json_encode($response);
 
     }
 }
