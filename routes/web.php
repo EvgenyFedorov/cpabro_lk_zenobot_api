@@ -43,7 +43,7 @@ Route::group(array('prefix' => 'api'), function (){
 
                 Route::group(array('prefix' => 'success'), function (){
 
-                    Route::get('', [
+                    Route::post('', [
                         'uses' => 'Api\\ApiJobsController@hookSuccess'
                     ]);
 

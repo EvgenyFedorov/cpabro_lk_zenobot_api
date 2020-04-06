@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Bot\Jobs;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ApiJobsController extends ApiController
 {
@@ -90,10 +91,10 @@ class ApiJobsController extends ApiController
         return json_encode($jobs);
 
     }
-    public function hookSuccess($id){
+    public function hookSuccess(Request $request, $id){
 
-        $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
-        dd($jobs);
+        //$jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
+        dd($request->input());
 
     }
 }
