@@ -27,6 +27,10 @@ Auth::routes();
 
 //Route::resource('/', 'User\\CabinetController')->names('/');
 
+Route::get('', [
+    'uses' => 'IndexController@index'
+]);
+
 Route::group(array('prefix' => 'api'), function (){
 
     Route::group(array('prefix' => 'v1'), function (){

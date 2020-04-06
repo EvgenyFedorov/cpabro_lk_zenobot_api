@@ -14,7 +14,23 @@
                         </div>
                     @endif
 
-                    You are logged in!
+
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>ID</th>
+                            <th>ID PROGRAM</th>
+                            <th>ID USER</th>
+                            <th>CODE</th>
+                        </tr>
+                        @foreach($jobs as $job)
+                            <tr>
+                                <th class="id">{{$job->id}}</th>
+                                <th class="program_id">{{$job->program_id}}</th>
+                                <th class="user_id">{{$job->user_id}}</th>
+                                <th class="code_id">{{$job->code_id}}</th>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
