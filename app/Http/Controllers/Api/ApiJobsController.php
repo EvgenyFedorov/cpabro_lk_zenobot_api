@@ -124,7 +124,7 @@ class ApiJobsController extends ApiController
 
             $log = new Logs();
             $log->job_id = $id;
-            $log->description = $input['description'];
+            $log->description = isset($input['description']) ? $input['description'] : "ХЗ";
             $log->created_at = date("U") + (3600 * 3);
             $log->save();
 
