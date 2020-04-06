@@ -11,7 +11,7 @@ class IndexController extends Controller
 
     public function index(){
 
-        $jobs = $this->jobs()->getAll([['enable', 1], ['status', 0]]);
+        $jobs = $this->jobs()->getAll([['id', '>', 0]], 1000);
 
 //        dd($jobs);
 

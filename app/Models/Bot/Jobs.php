@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 class Jobs extends Model
 {
 
-    public function getAll($where){
+    public function getAll($where, $limit){
         return DB::table('jobs')
             ->where($where)
+            ->limit($limit)
             ->get();
     }
     public function programs(){
