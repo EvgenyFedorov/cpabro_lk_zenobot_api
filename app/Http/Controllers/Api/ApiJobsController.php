@@ -93,8 +93,8 @@ class ApiJobsController extends ApiController
     }
     public function hookSuccess(Request $request, $id){
 
-        //$jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
-        dd($request->input());
+        $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
+        return json_encode($jobs);
 
     }
 }
