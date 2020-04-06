@@ -100,6 +100,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($jobs[0]->id);
             $job_edit->status = 1;
+            $job_edit->save();
 
         }
 
@@ -120,6 +121,7 @@ class ApiJobsController extends ApiController
 
             $job_edit = Jobs::find($jobs[0]->id);
             $job_edit->status = 2;
+            $job_edit->save();
 
             $log = new Logs();
             $log->job_id = $jobs[0]->id;
