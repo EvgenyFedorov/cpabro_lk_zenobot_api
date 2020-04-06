@@ -31,9 +31,27 @@ Route::get('', [
     'uses' => 'IndexController@index'
 ]);
 
+//http://lab.developing.su/api/v1/hook/{-Variable.id_job-}/success
+
 Route::group(array('prefix' => 'api'), function (){
 
     Route::group(array('prefix' => 'v1'), function (){
+
+        Route::group(array('prefix' => 'hook'), function (){
+
+            Route::group(array('prefix' => '{id}'), function (){
+
+                Route::group(array('prefix' => 'success'), function (){
+
+                    Route::get('', [
+                        'uses' => 'Api\\ApiJobsController@hookSuccess'
+                    ]);
+
+                });
+
+            });
+
+        });
 
         Route::group(array('prefix' => 'all'), function (){
 

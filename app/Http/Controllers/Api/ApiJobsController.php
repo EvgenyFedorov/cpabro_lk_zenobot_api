@@ -90,4 +90,10 @@ class ApiJobsController extends ApiController
         return json_encode($jobs);
 
     }
+    public function hookSuccess($id){
+
+        $jobs = $this->jobs()->getAll([['id', $id], ['enable', 1], ['status', 0]], 1);
+        dd($jobs);
+
+    }
 }
